@@ -25,7 +25,7 @@ if bg_img:
     st.markdown(f"""
         <style>
         .stApp {{
-            background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.85)),
+            background: linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.85)),
                         url("data:image/png;base64,{bg_img}");
             background-size: cover;
             background-position: center;
@@ -53,7 +53,10 @@ if bg_img:
 st.title("🧸 Wellness Planner for Autistic Children")
 
 # --- API Configuration ---
-genai.configure(api_key="AIzaSyBqx7s51Swc_l8jJILSjWjqyeNYvJXnFj0")
+api_key=st.secrets["bilal_api"]
+
+# Configure Gemini API key
+genai.configure(api_key=api_key)
 
 # --- State Initialization ---
 if "step" not in st.session_state:
